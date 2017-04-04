@@ -6,6 +6,15 @@ public class Person {
 	String address;
 	int age;
 
+	public Person() {
+		super();
+	}
+	
+	public Person(String name, String address, int age) {
+		this.name 		= name;
+		this.address 	= address;
+		this.age 		= age;
+	}
 	public String getName() {
 		return name;
 	}

@@ -29,5 +29,14 @@ public class Family {
 	public void setRelation(String relation) {
 		this.relation = relation;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("\n[\n관계 : %s\n정보\n%s\n]", nvl(relation), nvl(info));
+	}
+	
+	public String nvl(Object value) {
+		return (null == value ? "" : value.toString());
+	}
 
 }

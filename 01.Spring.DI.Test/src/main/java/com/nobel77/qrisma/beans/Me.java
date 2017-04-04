@@ -50,7 +50,7 @@ public class Me extends Person{
 	
 	@Override
 	public String toString() {
-		return String.format("Name    : %s\nAddress : %s\nAge     : %d\nFamily  : ", name, address, age, family.toString());
+		return String.format("Name    : %s\nAddress : %s\nAge     : %d\nFamily  : %s", name, address, age, family.toString());
 	}
 
 }
