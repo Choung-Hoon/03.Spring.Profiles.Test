@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="me1" class="com.nobel77.qrisma.beans.Me">
+		<property name="family">
+			<ref bean="mother" />
+		</property>
+		<property name="name" value="이현정" />
+		<property name="address" value="마천동" />
+		<property name="age" value="40" />
+	</bean>
+	
+	<bean id="me2" class="com.nobel77.qrisma.beans.Me">
+		<property name="family" ref="father" />
+		<property name="name" value="이현정" />
+		<property name="address" value="마천동" />
+		<property name="age" value="40" />
+	</bean>
+
+	<bean id="mother" class="com.nobel77.qrisma.beans.Family">
+		<constructor-arg>
+			<ref bean="PersonBean2" />
+		</constructor-arg>
+		<constructor-arg value="mother" />
+	</bean>
+	
+	<bean id="father" class="com.nobel77.qrisma.beans.Family">
+		<constructor-arg ref="PersonBean1"/>
+		<constructor-arg>
+            <value>father</value>
+        </constructor-arg>
+    </bean>
+    
+	<bean id="PersonBean1" class="com.nobel77.qrisma.beans.Person">
+        <constructor-arg type="java.lang.String" value="이동재" />
+        <constructor-arg type="java.lang.String" value="잠실" />
+        <constructor-arg type="int" value="60" />
+    </bean>
+
+	<bean id="PersonBean2" class="com.nobel77.qrisma.beans.Person">
+		<constructor-arg type="java.lang.String" value="이생란" />
+		<constructor-arg type="java.lang.String" value="잠실" />
+		<constructor-arg type="int" value="60" />
+	</bean>
+</beans>
