@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- Family 객체 생성 시, container 방식으로 첫 번째 인자 할당-->
+	<bean id="family1" class="com.nobel77.qrisma.beans.Family">
+		<!-- container 방식 -->
+		<constructor-arg>
+			<!-- container 방식 -->
+			<ref bean="PersonBean1" />
+		</constructor-arg>
+		<constructor-arg value="father" />
+	</bean>
+	
+	<!-- Family 객체 생성 시, local 방식으로 첫 번째 인자 할당
+	     참조할 bean이 없으면 오류 발생 
+	-->
+	<bean id="family2" class="com.nobel77.qrisma.beans.Family">
+		<constructor-arg>
+			<!-- local 방식 -->
+			<ref local="PersonBean2" />
+		</constructor-arg>
+		<constructor-arg value="mother" />
+	</bean>
+	
+	<bean id="family3" class="com.nobel77.qrisma.beans.Family">
+		<!-- container 방식 -->
+		<constructor-arg>
+			<!-- container 방식 -->
+			<ref bean="PersonBean3" />
+		</constructor-arg>
+		<constructor-arg value="father" />
+	</bean>
+
+	<bean id="PersonBean1" class="com.nobel77.qrisma.beans.Person">
+        <constructor-arg type="java.lang.String" value="이동재" />
+        <constructor-arg type="java.lang.String" value="잠실" />
+        <constructor-arg type="int" value="60" />
+    </bean>
+
+	<bean id="PersonBean2" class="com.nobel77.qrisma.beans.Person">
+		<constructor-arg type="java.lang.String" value="이생란" />
+		<constructor-arg type="java.lang.String" value="잠실" />
+		<constructor-arg type="int" value="60" />
+	</bean>
+	
+</beans>

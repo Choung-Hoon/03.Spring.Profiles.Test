@@ -18,6 +18,7 @@ public class ConstructorTest {
 	public void setUp() throws Exception {
 		String coinfigLocation = "/spring-config/constructor-context.xml";
 		ApplicationContext context = new ClassPathXmlApplicationContext(coinfigLocation);
+		
 		me1 = context.getBean("me1", com.nobel77.qrisma.beans.Me.class);
 		me2 = context.getBean("me2", com.nobel77.qrisma.beans.Me.class);
 				

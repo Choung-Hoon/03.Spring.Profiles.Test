@@ -21,26 +21,22 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<constructor-arg type="java.lang.String" value="잠실" />
 		<constructor-arg type="int" value="25" />
 	</bean>
-
+	
+	<!--  me1, me2 빈에 주입할 기초 빈 오브젝트 설정 -->
 	<bean id="father" class="com.nobel77.qrisma.beans.Family">
 		<constructor-arg>
 			<ref bean="PersonBean1" />
 		</constructor-arg>
-
 		<constructor-arg>
 			<value>father</value>
 		</constructor-arg>
-		<!-- <constructor-arg value="father"/> -->
-
 	</bean>
 
 	<bean id="mother" class="com.nobel77.qrisma.beans.Family">
 		<constructor-arg>
 			<ref bean="PersonBean2" />
 		</constructor-arg>
-
 		<constructor-arg value="mother" />
-
 	</bean>
 
 	<bean id="PersonBean1" class="com.nobel77.qrisma.beans.Person">
@@ -54,6 +50,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<constructor-arg type="java.lang.String" value="잠실" />
 		<constructor-arg type="int" value="60" />
 	</bean>
+	<!---------------------------------------------------------->
+	
 	
 	<!-- 생성자 주입 모호함 테스트 -->
 	<bean id="CustomerBean" class="com.nobel77.qrisma.beans.Customer">
@@ -74,7 +72,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 			<value>7777777</value>
 		</constructor-arg>
 	</bean>
-
+	<!--  type 속성을 이용한 생성자 순서의 모호함 해결 -->
 	<bean id="CustomerBean2" class="com.nobel77.qrisma.beans.Customer">
 		<constructor-arg type="java.lang.String">
 			<value>mkyong</value>
@@ -88,7 +86,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 			<value>28</value>
 		</constructor-arg>
 	</bean>
-
 	<bean id="CustomerBean3" class="com.nobel77.qrisma.beans.Customer">
 		<constructor-arg type="java.lang.String">
 			<value>mkyong</value>
@@ -102,7 +99,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 			<value>188가</value>
 		</constructor-arg>
 	</bean>
-
+	<!---------------------------------------------------------->
+	<!--  생성자 인자 순서를 이용한 생성자 순서의 모호함 해결 -->
 	<bean id="CustomerBean4" class="com.nobel77.qrisma.beans.Customer">
 		<constructor-arg index="0" value="mkyong" />
 		<constructor-arg index="1" value="잠실" />
@@ -114,5 +112,5 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<constructor-arg index="1" value="46" />
 		<constructor-arg index="2" value="오류동" />
 	</bean>
-
+	<!---------------------------------------------------------->
 </beans>
