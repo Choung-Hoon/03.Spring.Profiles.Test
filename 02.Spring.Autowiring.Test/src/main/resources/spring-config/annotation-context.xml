@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- @Autowired 사용을 위한 추가 설정 아래 둘중 하나를 지정 -->
+	<context:annotation-config />
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> -->
+
+	<bean id="customer" class="com.nobel77.qrisma.bean.annotation.Customer">
+		<property name="action" value="buy" />
+		<property name="type" value="1" />
+	</bean>
+	<!-- setter annotation class 테스트 -->
+	<bean id="customer1" class="com.nobel77.qrisma.bean.annotation.Customer1">
+		<property name="action" value="buy" />
+		<property name="type" value="1" />
+	</bean>
+	<!-- 생성자 annotation class 테스트 -->
+	<bean id="customer2" class="com.nobel77.qrisma.bean.annotation.Customer2">
+		<property name="action" value="buy" />
+		<property name="type" value="1" />
+	</bean>
+
+	<bean id="personA" class="com.nobel77.qrisma.bean.annotation.Person">
+		<property name="name" value="mkyongA" />
+		<property name="address" value="address 123" />
+		<property name="age" value="28" />
+	</bean>
+</beans>
